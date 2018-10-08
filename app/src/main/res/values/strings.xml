@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">TankWiki</string>
+    <string name="tier_tmpl">Lvl: %1$d</string>
+</resources>
