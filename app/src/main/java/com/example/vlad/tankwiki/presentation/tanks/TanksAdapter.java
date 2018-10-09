@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 
 import com.example.vlad.tankwiki.R;
-import com.example.vlad.tankwiki.data.beans.Tank;
+import com.example.vlad.tankwiki.data.model.Tank;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -46,6 +46,11 @@ class TanksAdapter extends RecyclerView.Adapter<TanksAdapter.VehicleViewHolder> 
     void add(final List<Tank> tanks) {
         list.addAll(tanks);
         notifyItemRangeInserted(list.size() - tanks.size() - 1, tanks.size());
+    }
+
+    public void clear() {
+        list.clear();
+        notifyDataSetChanged();
     }
 
     class VehicleViewHolder extends RecyclerView.ViewHolder {

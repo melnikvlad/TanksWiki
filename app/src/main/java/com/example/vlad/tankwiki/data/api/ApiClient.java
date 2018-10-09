@@ -1,6 +1,6 @@
 package com.example.vlad.tankwiki.data.api;
 
-import com.example.vlad.tankwiki.data.beans.TanksResponse;
+import com.example.vlad.tankwiki.data.model.TanksResponse;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.HashMap;
@@ -19,6 +19,7 @@ public class ApiClient {
 
     private static Retrofit mRetrofit;
 
+
     private static Retrofit buildRetrofit() {
         if (mRetrofit == null) {
             mRetrofit = new Retrofit.Builder()
@@ -30,7 +31,7 @@ public class ApiClient {
         return mRetrofit;
     }
 
-    public static Single<TanksResponse> tanks(Map<String, String> options) {
+    public Single<TanksResponse> tanks(Map<String, String> options) {
         if (options != null) {
             options.put("limit", String.valueOf(DEFAULT_LIMIT));
             return buildRetrofit().create(ApiService.class).tanks(APP_ID, options);

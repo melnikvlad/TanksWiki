@@ -1,9 +1,11 @@
 package com.example.vlad.tankwiki.presentation.tanks;
 
-import com.example.vlad.tankwiki.data.beans.Tank;
+import com.example.vlad.tankwiki.data.model.Tank;
 import com.example.vlad.tankwiki.data.common.UIStateType;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static com.example.vlad.tankwiki.data.common.UIStateType.ERROR;
 import static com.example.vlad.tankwiki.data.common.UIStateType.LOADING;
@@ -14,6 +16,7 @@ class TanksPageUIState {
     public final UIStateType state;
     public final List<Tank> data;
     public final Throwable throwable;
+    public static Map<String, String> options = new HashMap<>();
 
     public TanksPageUIState(final UIStateType state, final List<Tank> data, final Throwable throwable) {
         this.state = state;

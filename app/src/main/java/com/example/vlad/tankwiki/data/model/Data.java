@@ -1,4 +1,4 @@
-package com.example.vlad.tankwiki.data.beans;
+package com.example.vlad.tankwiki.data.model;
 
 import java.util.List;
 

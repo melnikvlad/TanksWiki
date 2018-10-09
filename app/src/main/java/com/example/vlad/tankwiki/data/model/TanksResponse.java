@@ -1,4 +1,4 @@
-package com.example.vlad.tankwiki.data.beans;
+package com.example.vlad.tankwiki.data.model;
 
 import com.google.gson.annotations.SerializedName;
 

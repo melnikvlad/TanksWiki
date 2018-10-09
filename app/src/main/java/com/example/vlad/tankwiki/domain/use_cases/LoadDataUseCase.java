@@ -1,7 +1,7 @@
 package com.example.vlad.tankwiki.domain.use_cases;
 
-import com.example.vlad.tankwiki.data.beans.Tank;
-import com.example.vlad.tankwiki.data.beans.TanksResponse;
+import com.example.vlad.tankwiki.data.model.Tank;
+import com.example.vlad.tankwiki.data.model.TanksResponse;
 
 import java.util.List;
 import java.util.Map;

@@ -1,7 +1,7 @@
 package com.example.vlad.tankwiki.domain.interactors;
 
-import com.example.vlad.tankwiki.data.beans.Tank;
-import com.example.vlad.tankwiki.data.beans.TanksResponse;
+import com.example.vlad.tankwiki.data.model.Tank;
+import com.example.vlad.tankwiki.data.model.TanksResponse;
 import com.example.vlad.tankwiki.data.repository.TanksRepository;
 import com.example.vlad.tankwiki.domain.use_cases.LoadDataUseCase;
 
@@ -9,13 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import javax.inject.Inject;
+
 import io.reactivex.Single;
 
 public class LoadDataInteractor implements LoadDataUseCase {
-    private final TanksRepository _tanksRepository;
+    private TanksRepository _tanksRepository;
 
-    public LoadDataInteractor() {
-        this._tanksRepository = new TanksRepository();
+    @Inject
+    public LoadDataInteractor(TanksRepository tanksRepository) {
+        _tanksRepository = tanksRepository;
     }
 
     @Override

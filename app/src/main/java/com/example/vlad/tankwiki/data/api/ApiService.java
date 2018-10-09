@@ -1,6 +1,6 @@
 package com.example.vlad.tankwiki.data.api;
 
-import com.example.vlad.tankwiki.data.beans.TanksResponse;
+import com.example.vlad.tankwiki.data.model.TanksResponse;
 
 import java.util.Map;
 
