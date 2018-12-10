@@ -1,4 +1,47 @@
 <resources>
     <string name="app_name">TankWiki</string>
+    <string name="filter">Filter</string>
+    <string name="text_empty_results">No tanks found</string>
+    <string name="tankImg">Tanks full image</string>
+    <string name="show_more">More</string>
+    <string name="show_less">Less</string>
+    <string name="armor">Armor</string>
+    <string name="ammo">Ammo</string>
+    <string name="gun">Gun</string>
+    <string name="engine">Engine</string>
+    <string name="radio">Radio</string>
+    <string name="suspension">Suspension</string>
+    <string name="hull">Hull</string>
+    <string name="turret">Turret</string>
+    <string name="penentration">Penetration</string>
+    <string name="damage">Damage</string>
+    <string name="name">Name:</string>
+    <string name="tier">Tier:</string>
+    <string name="power">Power:</string>
+    <string name="fire_chance">Fire chance:</string>
+    <string name="caliber">Caliber:</string>
+    <string name="reload">Reload time:</string>
+    <string name="aim">Aim time:</string>
+    <string name="fire_rate">Fire rate:</string>
+
+
     <string name="tier_tmpl">Lvl: %1$d</string>
+    <string name="three_val_tmpls">%1$d/%2$d/%3$d</string>
+    <string name="hull_armor_tmpl">Hull: %1$d/%2$d/%3$d</string>
+    <string name="turret_armor_tmpl">Turret: %1$d/%2$d/%3$d</string>
+    <string name="ammo_penetration_tmpl">Penetration: %1$d/%2$d/%3$d</string>
+    <string name="ammo_damage_tmpl">Damage: %1$d/%2$d/%3$d</string>
+    <string name="gun_name_tmpl">Name: %1$s</string>
+    <string name="gun_cal_tmpl">Caliber: %.1f mm</string>
+    <string name="gun_dispersion_tmpl">Dispersion: %.1f at 100 m (m)</string>
+    <string name="gun_reload_tmpl">Reload time: %.1f s</string>
+    <string name="gun_aim_tmpl">Aim time: %.1f s</string>
+    <string name="gun_fire_rate_tmpl">Fire rate: %.1f rounds/min</string>
+    <string name="gun_traverse_tmpl">Traverse_speed: %.1f deg/s</string>
+    <string name="load_limit">Load limit:</string>
+    <string name="trav_speed">Traverse speed:</string>
+    <string name="signal_range">Signal range:</string>
+    <string name="empty_screen_text">Nothing to display.\n Select tank or make another action.</string>
+
+
 </resources>

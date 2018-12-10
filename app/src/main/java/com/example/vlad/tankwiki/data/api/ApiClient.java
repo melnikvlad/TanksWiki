@@ -1,10 +1,17 @@
 package com.example.vlad.tankwiki.data.api;
 
-import com.example.vlad.tankwiki.data.model.TanksResponse;
+import android.util.Log;
+
+import com.example.vlad.tankwiki.data.model.detail.DetailResponse;
+import com.example.vlad.tankwiki.data.model.info.InfoRequestFields;
+import com.example.vlad.tankwiki.data.model.info.InfoResponse;
+import com.example.vlad.tankwiki.data.model.tanks.TanksResponse;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.inject.Singleton;
 
 import io.reactivex.Single;
 import retrofit2.Retrofit;
@@ -14,34 +21,32 @@ public class ApiClient {
     private static final String APP_ID = "06fc6671484ae67256ff47bfba5bb78e";
     private static final String BASE_URL = "https://api.worldoftanks.ru/wot/encyclopedia/";
 
-    private static final int DEFAULT_LIMIT = 10;
-    private static final int DEFAULT_PAGE_NO = 1;
+    public static final int DEFAULT_LIMIT = 10;
 
-    private static Retrofit mRetrofit;
-
+    private static Retrofit _retrofit;
 
     private static Retrofit buildRetrofit() {
-        if (mRetrofit == null) {
-            mRetrofit = new Retrofit.Builder()
+        if (_retrofit == null) {
+            _retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .build();
         }
-        return mRetrofit;
+        return _retrofit;
     }
 
-    public Single<TanksResponse> tanks(Map<String, String> options) {
-        if (options != null) {
-            options.put("limit", String.valueOf(DEFAULT_LIMIT));
-            return buildRetrofit().create(ApiService.class).tanks(APP_ID, options);
-        } else {
-            Map<String, String> queryMap = new HashMap<>();
-            queryMap.put("limit", String.valueOf(DEFAULT_LIMIT));
-            queryMap.put("page_no", String.valueOf(DEFAULT_PAGE_NO));
-            return buildRetrofit().create(ApiService.class).tanks(APP_ID, queryMap);
+    public Single<TanksResponse> tanks(int page, Map<String, String> options) {
+        if (options == null) {
+            options = new HashMap<>();
         }
+        options.put("limit", String.valueOf(DEFAULT_LIMIT));
+        options.put("page_no", String.valueOf(page));
+        return buildRetrofit().create(ApiService.class).tanks(APP_ID, options);
+    }
 
+    public Single<DetailResponse> profile(int tankId) {
+        return buildRetrofit().create(ApiService.class).details(APP_ID, tankId);
     }
 
 }

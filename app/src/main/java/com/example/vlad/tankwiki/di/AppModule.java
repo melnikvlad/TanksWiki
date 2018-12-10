@@ -3,6 +3,7 @@ package com.example.vlad.tankwiki.di;
 import android.app.Application;
 
 import com.example.vlad.tankwiki.data.api.ApiClient;
+import com.example.vlad.tankwiki.data.rx.SchedulersFacade;
 
 import javax.inject.Singleton;
 
@@ -27,5 +28,11 @@ public class AppModule {
     @Singleton
     ApiClient provideApiClient() {
         return new ApiClient();
+    }
+
+    @Provides
+    @Singleton
+    SchedulersFacade provideScheduler() {
+        return new SchedulersFacade();
     }
 }

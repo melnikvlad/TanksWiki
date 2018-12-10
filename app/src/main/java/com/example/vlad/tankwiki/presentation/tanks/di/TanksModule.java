@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModelProvider;
 
 import com.example.vlad.tankwiki.data.api.ApiClient;
 import com.example.vlad.tankwiki.data.repository.TanksRepository;
-import com.example.vlad.tankwiki.data.rx.ShedulersFacade;
+import com.example.vlad.tankwiki.data.rx.SchedulersFacade;
 import com.example.vlad.tankwiki.domain.interactors.LoadDataInteractor;
 import com.example.vlad.tankwiki.presentation.tanks.TanksViewModelFactory;
 
@@ -24,19 +24,13 @@ public class TanksModule {
 
     @Provides
     @Singleton
-    ShedulersFacade provideSchedulerFacade() {
-        return new ShedulersFacade();
-    }
-
-    @Provides
-    @Singleton
     TanksRepository provideTanksRepository(ApiClient apiClient) {
         return new TanksRepository(apiClient);
     }
 
     @Provides
     @Singleton
-    ViewModelProvider.Factory provideFactory(LoadDataInteractor loadDataInteractor, ShedulersFacade shedulersFacade) {
-        return new TanksViewModelFactory(loadDataInteractor, shedulersFacade);
+    ViewModelProvider.Factory provideFactory(LoadDataInteractor loadDataInteractor) {
+        return new TanksViewModelFactory(loadDataInteractor);
     }
 }
